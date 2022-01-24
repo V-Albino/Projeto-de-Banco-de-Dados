@@ -17,14 +17,14 @@ public class cursoDao {
     
     public void inserirCurso(curso a){
         try {
-            String SQL="INSERT INTO curso (endereço, salas, preço, nome) VALUE (?,?,?,?)";
-            Connection MinhaCon = conexao.getConexao();
-            PreparedStatement comando = MinhaCon.prepareStatement(SQL);
+            String SQL="INSERT INTO victor_albino.curso (endereco, salas, preco, nome) VALUES (?,?,?,?)";
+            Connection c = conexao.getConexao();
+            PreparedStatement comando = c.prepareStatement(SQL);
             comando.setString(1, a.getEndereco());
             comando.setInt(2, a.getSalas());
             comando.setString(3, a.getPreco());
             comando.setString(4, a.getNome());
-            MinhaCon.close();
+            c.close();
             int retorno=comando.executeUpdate();
             if(retorno>0){
                 JOptionPane.showMessageDialog(null,"Curso "+a.getNome()+ "inserido com sucesso");

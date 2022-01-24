@@ -18,25 +18,6 @@ public class professor {
     private String telefone;
     private String email;
 
-    public professor() {
-        this.materia = "";
-        this.salario = "";
-        this.CPF = "";
-        this.nome = "";
-        this.material = "";
-        this.telefone = "";
-        this.email = "";
-    }
-
-    public professor(String materia, String salario, String CPF, String nome, String material, String telefone, String email) {
-        this.materia = materia;
-        this.salario = salario;
-        this.CPF = CPF;
-        this.nome = nome;
-        this.material = material;
-        this.telefone = telefone;
-        this.email = email;
-    }
     public String getMateria() {
         return materia;
     }
@@ -91,5 +72,11 @@ public class professor {
 
     public void setEmail(String email) {
         this.email = email;
-    } 
+    }
+
+    @Override
+    public String toString() {
+        return "" + "" + materia + " | " + salario + " | " + CPF + " | " + nome + " | " + material + " | " + email + " | " + telefone + '}';
+    }
+    
 }

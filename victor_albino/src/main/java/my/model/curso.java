@@ -59,4 +59,10 @@ public class curso {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    @Override
+    public String toString() {
+    return "{" + ", endereco=" + endereco + ", salas=" + salas + ", preco=" + preco + ", nome=" + nome +'}';
+    }
+    
 }

@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package my.conexao;
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -21,20 +23,17 @@ public class conexao {
     private static Connection MinhaCon=null;
 
     public static Connection getConexao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    try {
+        if(conexao.MinhaCon ==null){
+        conexao.MinhaCon = DriverManager.getConnection(url, usuario, senha);
+        }      
+    return MinhaCon;
+    } 
+    catch (SQLException ex) {
+        Logger.getLogger(conexao.class.getName()).log(Level.SEVERE, null, ex);
+        System.out.println("Erro de conexão ao banco de dados: " +ex.getMessage());
+    }
+    return null;
     }
     
-    public Connection getConexão(){
-        try {
-            if(conexao.MinhaCon ==null){
-                conexao.MinhaCon = DriverManager.getConnection(url, usuario, senha);
-        }      
-        return MinhaCon;
-        } 
-        catch (SQLException ex) {
-                Logger.getLogger(conexao.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("Erro de conexão ao banco de dados: " +ex.getMessage());
-        }
-        return null;
-    }
 }
